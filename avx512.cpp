@@ -31,6 +31,13 @@ void test_avx512() {
         GEN(Zmm, "vpmullq reg, reg, [mem]", (g->vpmullq(dst, src, g->ptr[g->rdx])), false, OT_FP64);
     }
 
+    if (info.have_avx512ifma) {
+        GEN(Zmm, "vpmadd52luq", (g->vpmadd52luq(dst, src, src)), false, OT_FP64);
+        GEN(Zmm, "vpmadd52luq reg, reg, [mem]", (g->vpmadd52luq(dst, src, g->ptr[g->rdx])), false, OT_FP64);
+        GEN(Zmm, "vpmadd52huq", (g->vpmadd52huq(dst, src, src)), false, OT_FP64);
+        GEN(Zmm, "vpmadd52huq reg, reg, [mem]", (g->vpmadd52huq(dst, src, g->ptr[g->rdx])), false, OT_FP64);
+    }
+
     if (info.have_avx512er) {
         GEN(Zmm, "vrcp28pd", (g->vrcp28pd(dst, src)), false, OT_FP32);
     }

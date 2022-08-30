@@ -157,6 +157,10 @@ main(int argc, char **argv)
             info.have_avx512f = true;
         }
 
+        if (reg[1] & (1<<21)) {
+            info.have_avx512ifma = true;
+        }
+
         if (reg[1] & (1<<27)) {
             info.have_avx512er = true;
         }

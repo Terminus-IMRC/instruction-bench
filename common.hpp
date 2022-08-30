@@ -10,6 +10,7 @@ struct cpuinfo {
     bool have_avx2 = false;
     bool have_fma = false;
     bool have_avx512f = false;
+    bool have_avx512ifma = false;
     bool have_avx512er = false;
     bool have_avx512vnni = false;
     bool have_avx512bf16 = false;
